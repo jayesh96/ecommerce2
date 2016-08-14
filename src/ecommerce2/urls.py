@@ -3,16 +3,22 @@ from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
 
+from newsletter.views import (
+	home,
+	contact
+	)
 
 urlpatterns = [
     # Examples:
-    url(r'^$', 'newsletter.views.home', name='home'),
-    url(r'^contact/$', 'newsletter.views.contact', name='contact'),
+    url(r'^$', home, name='home'),
+    url(r'^contact/$', contact, name='contact'),
     url(r'^about/$', 'ecommerce2.views.about', name='about'),
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/', include('registration.backends.default.urls')),
+    url(r'^products/', include('products.urls')),
+
 ]
 
 if settings.DEBUG:
