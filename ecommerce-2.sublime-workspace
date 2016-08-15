@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"ta",
+				"table	Tag"
+			],
+			[
+				"P",
+				"Product"
+			],
+			[
+				"pr",
+				"product_instance"
+			],
+			[
 				"re",
 				"reverse"
 			],
@@ -150,10 +162,6 @@
 			[
 				"user",
 				"user"
-			],
-			[
-				"pr",
-				"print"
 			],
 			[
 				"da",
@@ -356,10 +364,6 @@
 				"link1"
 			],
 			[
-				"P",
-				"PadedownWidget"
-			],
-			[
 				"fun",
 				"function"
 			],
@@ -510,10 +514,6 @@
 			[
 				"car",
 				"CarpoolCity"
-			],
-			[
-				"col",
-				"color"
 			]
 		]
 	},
@@ -523,18 +523,31 @@
 			"file": "src/products/models.py",
 			"settings":
 			{
-				"buffer_size": 334,
+				"buffer_size": 468,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "from django.views.generic.detail.DetailView import DetailView\nfrom django.shortcuts import render\n\n# Create your views here.\n\nfrom .models import Product\n\n\n\n",
 			"file": "src/products/views.py",
-			"file_size": 126,
-			"file_write_time": 131156821606814908,
 			"settings":
 			{
-				"buffer_size": 157,
+				"buffer_size": 610,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/products/urls.py",
+			"settings":
+			{
+				"buffer_size": 569,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/products/templates/products/product_list.html",
+			"settings":
+			{
+				"buffer_size": 220,
 				"line_ending": "Unix"
 			}
 		}
@@ -612,13 +625,17 @@
 	},
 	"expanded_folders":
 	[
-		"/home/jayesh/Desktop/ecommerce-2",
 		"/home/jayesh/Desktop/ecommerce-2/src",
 		"/home/jayesh/Desktop/ecommerce-2/src/products",
-		"/home/jayesh/Desktop/ecommerce-2/static_in_env"
+		"/home/jayesh/Desktop/ecommerce-2/src/products/templates",
+		"/home/jayesh/Desktop/ecommerce-2/src/products/templates/products"
 	],
 	"file_history":
 	[
+		"/home/jayesh/Desktop/ecommerce-2/src/products/templates/products/product_detail.html",
+		"/home/jayesh/Desktop/ecommerce-2/src/ecommerce2/urls.py",
+		"/home/jayesh/Desktop/ecommerce-2/src/products/templates/products/products_detail.html",
+		"/home/jayesh/Desktop/dBlog_final/src/posts/urls.py",
 		"/home/jayesh/Desktop/ecommerce-2/src/products/admin.py",
 		"/home/jayesh/Desktop/ecommerce-2/src/newsletter/views.py",
 		"/home/jayesh/Desktop/ecommerce-2/src/ecommerce2/settings/local.py",
@@ -634,7 +651,6 @@
 		"/home/jayesh/Desktop/ecommerce-2/src/trydjango18/old_settings.py",
 		"/home/jayesh/Desktop/try-django-19/src/posts/urls.py",
 		"/home/jayesh/Desktop/dBlog_final/src/templates/post_detail.html",
-		"/home/jayesh/Desktop/dBlog_final/src/posts/urls.py",
 		"/home/jayesh/Desktop/dBlog_final/src/templates/index.html",
 		"/home/jayesh/Desktop/dBlog_final/src/posts/models.py",
 		"/home/jayesh/Desktop/dBlog_final/src/posts/views.py",
@@ -743,10 +759,7 @@
 		"/home/jayesh/projects/ridely-django/ridely/templates/engage/notification.html",
 		"/home/jayesh/projects/ridely-django/ridely/corporate/admin.py",
 		"/home/jayesh/projects/ridely-django/ridely/templates/corporate/corporate.html",
-		"/home/jayesh/projects/ridely-django/ridely/templates/corporate/corporate_pending.html",
-		"/home/jayesh/projects/ridely-django/ridely/static/AdminLTE-2.1.1/bootstrap/css/bootstrap.css",
-		"/home/jayesh/projects/ridely-django/ridely/users/models.py",
-		"/home/jayesh/projects/ridely-django/ridely/templates/corporate/corporate_denied.html"
+		"/home/jayesh/projects/ridely-django/ridely/templates/corporate/corporate_pending.html"
 	],
 	"find":
 	{
@@ -847,13 +860,13 @@
 			"path": "/home/jayesh/cfe/Advancing-the-Blog"
 		},
 		{
-			"path": "/home/jayesh/Desktop/ecommerce-2"
+			"path": "/home/jayesh/Desktop/ecommerce-2/src"
 		}
 	],
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -862,15 +875,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 334,
+						"buffer_size": 468,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								64,
-								71
+								466,
+								466
 							]
 						],
 						"settings":
@@ -881,7 +894,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -890,20 +903,78 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 157,
+						"buffer_size": 610,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								155,
-								155
+								231,
+								231
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/products/urls.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 569,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								378,
+								378
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/products/templates/products/product_list.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 220,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								25,
+								25
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
