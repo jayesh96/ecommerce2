@@ -1,6 +1,6 @@
 from django.core.urlresolvers import reverse
 from django.db import models
-
+from django.db.models.signals import post_save
 # Create your models here.
 
 class ProductQuerySet(models.query.QuerySet):
@@ -18,7 +18,8 @@ class Product(models.Model):
 	title = models.CharField(max_length=120)
 	description = models.TextField(blank=True, null=True)
 	price = models.DecimalField(decimal_places=2, max_digits=20)
-	active =  models.BooleanField(default=True)
+	quantity = models.IntegerField(default=0)
+	active = models.BooleanField(default=True)
 
 	objects = ProductManager()
 
@@ -28,18 +29,19 @@ class Product(models.Model):
 	def get_absolute_url(self):
 		return reverse("product_detail", kwargs={"pk": self.pk})
 
+
 class Variation(models.Model):
-	product = models.ForeignKey(Product)                                                           
+	product = models.ForeignKey(Product)
 	title = models.CharField(max_length=120)
 	price = models.DecimalField(decimal_places=2, max_digits=20)
-	sale_price = models.DecimalField(decimal_places=2, max_digits=20, null=True, blank=True)
+	sale_price = models.DecimalField(decimal_places = 2,max_digits=20, null=True, blank=True)
 	active = models.BooleanField(default=True)
-	inventory = models.IntegerField(default="-1", null=True, blank=True) #-1 refer unlimited amount
+	inventory = models.IntegerField(null=True,blank=True)
 
 	def __unicode__(self):
 		return self.title
 
-	def get_price(self):
+	def get_price():
 		if self.sale_price is not None:
 			return self.sale_price
 		else:
@@ -47,3 +49,15 @@ class Variation(models.Model):
 
 	def get_absolute_url(self):
 		return self.product.get_absolute_url()
+
+def product_self_saved_resolver(sender, instance, created,*args, **kwargs):
+	product = instance
+	variations = product.Variation.set_all()
+	if variations.count() == 0:
+		new_var = Variations()
+		new_var.product = product
+		new_var.title = "default"
+		new_var.price = product.price
+		new_var.save()
+
+post_save.connect(product_self_saved_resolver, sender=Product)

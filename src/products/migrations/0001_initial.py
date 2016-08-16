@@ -17,7 +17,20 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=120)),
                 ('description', models.TextField(null=True, blank=True)),
                 ('price', models.DecimalField(max_digits=20, decimal_places=2)),
+                ('quantity', models.IntegerField()),
                 ('active', models.BooleanField(default=True)),
+            ],
+        ),
+        migrations.CreateModel(
+            name='Variation',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('title', models.CharField(max_length=120)),
+                ('price', models.DecimalField(max_digits=20, decimal_places=2)),
+                ('sale_price', models.DecimalField(null=True, max_digits=20, decimal_places=2, blank=True)),
+                ('active', models.BooleanField(default=True)),
+                ('inventory', models.IntegerField(default=b'-1', null=True, blank=True)),
+                ('product', models.ForeignKey(to='products.Product')),
             ],
         ),
     ]

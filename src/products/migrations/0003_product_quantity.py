@@ -7,13 +7,13 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('products', '0002_variation'),
+        ('products', '0002_auto_20160816_1941'),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='variation',
-            name='sale_price',
-            field=models.DecimalField(null=True, max_digits=20, decimal_places=2, blank=True),
+            model_name='product',
+            name='quantity',
+            field=models.IntegerField(default=0),
         ),
     ]
