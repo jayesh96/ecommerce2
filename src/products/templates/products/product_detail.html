@@ -4,10 +4,16 @@
 
 <div class="row"> 
 
+<div class="col-sm-8"> 
+<h2>{{ object.title }}</h2>
+<p class="lead">
+{{ object.description }}
+</p>
+</div>
 
-{{ object.title }}
 
-
+<div class="col-sm-4"> 
+<h1>{{ object.price }}</h1>
 {% if object.variation_set.all > 1 %}
 <select class="form-control">
 {% for vari_obj in object.variation_set.all %}
@@ -26,6 +32,10 @@
 <br/>
 <a href="#">Add To Cart</a>
 
+<br/>
+<hr/>
+<h4>Related Products</h4>
+</div>
 
 </div>
 {% endblock %}
