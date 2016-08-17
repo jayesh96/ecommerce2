@@ -52,12 +52,14 @@ class Variation(models.Model):
 
 def product_self_saved_resolver(sender, instance, created,*args, **kwargs):
 	product = instance
-	variations = product.Variation.set_all()
-	if variations.count() == 0:
-		new_var = Variations()
-		new_var.product = product
-		new_var.title = "default"
-		new_var.price = product.price
-		new_var.save()
+	variation = product.variation_set.all()
+	#variation = Variation.objects.filter(product=product)
+	print variation
+	if variation.count() == 0:
+		new_var = Variation()
+	 	new_var.product = product
+	 	new_var.title = "default"
+	 	new_var.price = product.price
+	 	new_var.save()
 
-post_save.connect(product_self_saved_resolver, sender=Product)
+post_save.connect(product_self_saved_resolver, sender=Product)       

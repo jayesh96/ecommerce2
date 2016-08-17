@@ -2,6 +2,9 @@
 
 {% block content %}
 
+<div class="row"> 
+
+
 {{ object.title }}
 
 
@@ -10,8 +13,9 @@
 {% for vari_obj in object.variation_set.all %}
 
 <option value="{{ vari_obj.id }}">
+	{{ vari_obj }}
+</option>
 
-{{ vari_obj }}
 
 {% endfor %}
 
@@ -20,6 +24,8 @@
 
 {% endif %}
 <br/>
-<a href="$">Add To Cart</a>
+<a href="#">Add To Cart</a>
 
+
+</div>
 {% endblock %}
