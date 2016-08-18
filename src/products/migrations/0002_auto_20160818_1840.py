@@ -11,13 +11,9 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RemoveField(
-            model_name='product',
-            name='quantity',
-        ),
         migrations.AlterField(
-            model_name='variation',
-            name='inventory',
-            field=models.IntegerField(null=True, blank=True),
+            model_name='productimage',
+            name='image',
+            field=models.FileField(upload_to=b'products/'),
         ),
     ]

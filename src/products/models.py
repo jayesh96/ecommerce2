@@ -1,6 +1,7 @@
 from django.core.urlresolvers import reverse
 from django.db import models
 from django.db.models.signals import post_save
+from django.utils.text import slugify
 # Create your models here.
 
 class ProductQuerySet(models.query.QuerySet):
@@ -63,3 +64,18 @@ def product_self_saved_resolver(sender, instance, created,*args, **kwargs):
 	 	new_var.save()
 
 post_save.connect(product_self_saved_resolver, sender=Product)       
+
+
+def image_upload_to(instance, filename):
+	title = instance.product.title
+	print title
+	slug = slugify(title)
+	print slug
+	return "products/%s/%s" %(slug, filename)
+
+class ProductImage(models.Model):
+	product = models.ForeignKey(Product)
+	image = models.FileField(upload_to=image_upload_to)
+
+	def __unicode__(self):
+		return self.product.title
