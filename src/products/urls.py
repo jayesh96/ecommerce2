@@ -5,12 +5,15 @@ from django.contrib import admin
 
 from .views import(
     ProductListView,
-    ProductDetailView
+    ProductDetailView,
+    VariationListView
     )
 urlpatterns = [
     # Examples:
     url(r'^$', ProductListView.as_view(template_name="products/product_list.html"), name='products'),
     url(r'^(?P<pk>\d+)/$', ProductDetailView.as_view(template_name="products/product_detail.html"), name='product_detail'),
+    url(r'^(?P<pk>\d+)/inventory/$', VariationListView.as_view(template_name="products/variation_list.html"), name='product_inventory'),
+
     # url(r'^(?P<id>\d+)$', product_detail_view_func, name='product_detail_function'),
 
 ]
