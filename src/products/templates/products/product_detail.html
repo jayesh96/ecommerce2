@@ -29,16 +29,10 @@
 	<div class='col-sm-8'>
 		<h2>{{ object.title }}</h2>
 
-		{% if object.productimage_set.count > 0 %}
-
+		{% if object.get_image_url %}
 		<div>
-			{% for img in object.productimage_set.all %}
-			<img id='img' class='img-responsive' src='{{ img.image.url }}' />
-
-			{% endfor %}
-
+			<img id='img' class='img-responsive' src='{{ object.get_image_url }}' />
 		</div>
-
 		{% endif %}
 		<p class='lead'>
 			{{ object.description }}
@@ -63,25 +57,25 @@
 			</option>
 			
 			{% endfor %}
-		
+
 		</select>
 
 		{% else %}
 
 		<h3 id='price'>
 
-		{% if object.variation_set.first.sale_price %}
+			{% if object.variation_set.first.sale_price %}
 
 			{{ object.variation_set.first.sale_price }}
 
-		<small class='og-price'>{{ object.variation_set.first.sale_price }}
-		</small>
+			<small class='og-price'>{{ object.variation_set.first.sale_price }}
+			</small>
 
-		{% else %}
-		
+			{% else %}
+
 			{{ object.variation_set.first.price }}
-		
-		{% endif %}
+
+			{% endif %}
 
 		</h3>
 
@@ -107,8 +101,15 @@
 				<h4>Related Products</h4>
 				{% for product in related %}
 
+				{% if product.get_image_url %}
+				<div>
+					<img id='img' class='img-responsive' src='{{ product.get_image_url }}' />
+				</div>
+				{% else %}
+
 				<a href="{{ product.get_absolute_url }}">{{ product.title }}</a><br>
-				
+
+				{% endif %}
 
 				{% endfor %}
 				

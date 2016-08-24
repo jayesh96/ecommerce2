@@ -87,14 +87,15 @@ class ProductListView(ListView):
 				pass
 		return qs
 
+import random
 class ProductDetailView(DetailView):
 	model = Product
 	def get_context_data(self, *args, **kwargs):
 		context = super(ProductDetailView, self).get_context_data(*args, **kwargs)
 		instance = self.get_object()
 		##To slice the no of items
-		# context["related"] = Product.objects.get_related(instance).order_by("?")[:1] 
-		context["related"] = Product.objects.get_related(instance).order_by("?")
+		# context["related"] = Product.objects.get_related(instance).order_by("?")[:1]   # context["related"] = Product.objects.get_related(instance).order_by("?")
+		context["related"] = sorted(Product.objects.get_related(instance)[:6], key = lambda x:random.random())
 		return context
 
 
