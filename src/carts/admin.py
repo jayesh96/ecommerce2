@@ -2,12 +2,16 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import CartItem,Cart
-class CartItemAdmin(admin.ModelAdmin):
-	list_display = ["item","quantity"]
+from .models import Cart,CartItem
+
+class CartItemInline(admin.TabularInline):
+	model = CartItem
+
+class CartAdmin(admin.ModelAdmin):
+	inlines = [
+	CartItemInline
+	]
 	class Meta:
-		model = CartItem
+		model = Cart
 
-
-admin.site.register(Cart)
-admin.site.register(CartItem,CartItemAdmin)
+admin.site.register(Cart,CartAdmin)

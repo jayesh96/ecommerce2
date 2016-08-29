@@ -26,13 +26,14 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('quantity', models.PositiveIntegerField(default=1)),
+                ('cart', models.ForeignKey(to='carts.Cart')),
                 ('item', models.ForeignKey(to='products.Variation')),
             ],
         ),
         migrations.AddField(
             model_name='cart',
             name='items',
-            field=models.ManyToManyField(to='carts.CartItem'),
+            field=models.ManyToManyField(to='products.Variation', through='carts.CartItem'),
         ),
         migrations.AddField(
             model_name='cart',
