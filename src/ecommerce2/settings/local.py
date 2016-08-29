@@ -58,7 +58,8 @@ INSTALLED_APPS = (
     'registration',
     #my apps
     'newsletter',
-    'products' , 
+    'products' ,
+    'carts', 
 
 )
 
