@@ -9,7 +9,7 @@ class VariationAdmin(admin.ModelAdmin):
 		model = Variation
 
 class ProductAdmin(admin.ModelAdmin):
-	list_display = ["title","price","quantity","active","default"]
+	list_display = ["title","price","active","default"]
 	class Meta:
 		model = Product
 
