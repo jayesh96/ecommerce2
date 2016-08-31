@@ -12,7 +12,7 @@ class VariationInline(admin.TabularInline):
 	extra = 0
 
 class VariationAdmin(admin.ModelAdmin):
-	list_display = ["title","price","product","price","sale_price","active","inventory"]
+	list_display = ["id","title","price","product","price","sale_price","active","inventory"]
 	class Meta:
 		model = Variation
 

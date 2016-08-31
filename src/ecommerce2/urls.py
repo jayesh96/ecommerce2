@@ -7,18 +7,19 @@ from newsletter.views import (
 	home,
 	contact
 	)
+from cart.views import CartView
 
 urlpatterns = [
     # Examples:
     url(r'^$', home, name='home'),
     url(r'^contact/$', contact, name='contact'),
     url(r'^about/$', 'ecommerce2.views.about', name='about'),
-    # url(r'^blog/', include('blog.urls')),
-
+    
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^products/', include('products.urls')),
     url(r'^categories/', include('products.url_categories')),
+    url(r'^cart/$', CartView.as_view(), name='cart'),
 
 ]
 

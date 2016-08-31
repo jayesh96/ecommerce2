@@ -54,6 +54,7 @@ class Product(models.Model):
 
 
 class Variation(models.Model):
+	id = models.AutoField(primary_key=True)
 	product = models.ForeignKey(Product)
 	title = models.CharField(max_length=120)
 	price = models.DecimalField(decimal_places=2, max_digits=20)
