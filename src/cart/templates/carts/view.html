@@ -3,8 +3,17 @@
 {% block content %}
 
 {{ object }}
-<br>
- 
-{{ object.items.all }}
+
+<table class='table'>
+{% for item in object.cartitem_set.all %}
+<tr>
+<td>{{ item.get_title }}</td>
+<td>{{ item.quantity }}</td>
+<td>{{ item.get_price }}</td>
+
+<td><a href={{ item.remove }}>Remove</a></td>
+</tr>
+{% endfor %}
+</table>
 
 {% endblock %}

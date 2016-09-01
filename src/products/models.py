@@ -81,6 +81,12 @@ class Variation(models.Model):
 	def get_absolute_url(self):
 		return self.product.get_absolute_url()
 
+	def add_to_cart(self):
+		return "%s?item=%s&qty=1" %(reverse("cart"), self.id)
+
+	def remove_from_cart(self):
+		return "%s?item=%s&qty=1&delete=True" %(reverse("cart"), self.id)
+
 
 
 def product_post_saved_receiver(sender, instance, created, *args, **kwargs):
