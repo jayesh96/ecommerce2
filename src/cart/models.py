@@ -19,8 +19,6 @@ class CartItem(models.Model):
 	def get_title(self):
 		return "%s - %s" %(self.item.product.title,self.item.title )
 
-	def get_price(self):
-		return "%s" %(self.item.price)
 
 class Cart(models.Model):
 	user = models.ForeignKey(settings.AUTH_USER_MODEL,null=True, blank=True)
