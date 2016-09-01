@@ -25,12 +25,19 @@ $(".item-qty").change(function(){
 
 <td><input type="number" class='item-qty' name="qty" min="0" value="{{ item.quantity }}" /><input type="submit" class="btn-update btn btn-link" value='update' style='display:none;'></td>
 
+<td>{{ item.get_price }}</td>
 <td>{{ item.line_item_total }}</td>
+
 <td class='text-right'><a href={{ item.remove }}>Remove</a></td>
 </form>
 
 </tr>
 {% endfor %}
+
+<tr>
+<td colspan='5' class='text-right'>Subtotal : {{ object.subtotal }}</td>
+
+</tr>
 </table>
 
 {% endblock %}
